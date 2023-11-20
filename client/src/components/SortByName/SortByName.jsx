@@ -1,8 +1,7 @@
 import { useDispatch } from "react-redux";
 import { sortByName } from "../../redux/actions";
 import { useState } from "react";
-import './SortByName.css';
-
+import style from './SortByName.module.css';
 
 export const SortByName = () => {
     const dispatch = useDispatch()
@@ -22,7 +21,7 @@ export const SortByName = () => {
     }
   
     return (
-      <div className="cont" >
+      <div className={style.cont} >
         <select  onChange={handleOrderChange} >
           <option value="default">Sort alphabetically</option>
           <option value="asc">A-Z</option>

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Card.css";
+import style from "./Card.module.css";
 import {useHistory, Link} from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react";
@@ -20,37 +20,39 @@ function Card ({name, weightMin, weightMax, heightMin, heightMax, temperament, i
     }, [dispatch, id]);
 
     return (
-        <div className="cardi"> 
-        <div className="card-content">
-            <div className="foto">
-                <img src={image} alt="foto del dog" className="img"/>
+        <div className={`${style.cardi} ${isDetailPage ? style.cardiDetails : ''}`}> 
+        <div className={style.cardContent}>
+            <div className={style.foto}>
+                <img src={image} alt="foto del dog" className={`${style.imga} ${isDetailPage ? style.abc : ''}`}/>
+
             </div>
-                <p>Nombre: {name}</p>
-                <p>Temperamento: {temperament}</p>
-                <p>Peso: {weightMin} - {weightMax}</p>     
+            <div className={style.alin}>    
+                <p>{name}</p>
+                <p className={style.letra}>Temperamento: <br/> {temperament}</p>
+                <p className={style.letrap}>Peso: <br/>{weightMin} - {weightMax}</p> 
+                    
 
             {isDetailPage && (
                 <div>
-                <p>Altura: {heightMin} - {heightMax}</p>
-                
-
-
+                <p className={style.letrah}>Altura: <br/>{heightMin} - {heightMax}</p>
 
 
                 <Link to={'/home'} >
-                    <button>Back To Home</button>
+                    <button className={style.showcard}>Back To Home</button>
                 </Link>
                 
                 
                 </div>
 
             )}
+            
+            </div>
 {!isDetailPage && (
     
     
                 <Link to={`/home/${id}`} >
                     
-                    <button>
+                    <button className={style.showcard}>
                         Detalle
                     </button>
                 </Link>
@@ -59,5 +61,7 @@ function Card ({name, weightMin, weightMax, heightMin, heightMax, temperament, i
         </div>
     );
 }
+
+
 
 export default Card;

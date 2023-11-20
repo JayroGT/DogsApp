@@ -1,3 +1,15 @@
+body{
+  background-color: var(--color3);
+}
+
+:root {
+  --color1: #e5e6b8;  
+  --color2: #c6d4b8;
+  --color3: #6ca6a3;
+  --color4: #856a6a;
+  --color5: #9c325c;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +47,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.contDiv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

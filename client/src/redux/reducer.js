@@ -24,8 +24,9 @@ import {
       case FILTER_BY_NAME:
         return {
           ...state,
-          dogsCopy: action.payload,
+          dogs: action.payload,
         };
+
       case GET_DOGS:
         return {
           ...state,
@@ -35,13 +36,22 @@ import {
         };
   
         case GET_BY_ID:
-                 return { ...state, dogsId: action.payload };
+                 return { 
+                  ...state, dogsId: 
+                  action.payload 
+                };
   
         case GET_DOG_DETAILS:
-                 return { ...state, dogsName: action.payload };
+                 return { 
+                  ...state, 
+                  dogsName: action.payload 
+                };
 
         case GET_TEMPERAMENTS:
-                return { ...state, temperaments:action.payload};
+                return { 
+                  ...state, 
+                  temperaments:action.payload
+                };
     
         case GET_FILTER_DOGS_BY_TEMPERAMENT:
                 const temperament = action.payload;
@@ -52,22 +62,33 @@ import {
                     : action.payload === "none"
                     ? state.dogsCopy.filter(
                         (dog) =>
-                            dog.temperament === undefined || dog.temperament.length === 0
+                            dog?.temperament === undefined || dog?.temperament.length === 0
                         )
                     : state.dogsCopy.filter(
                         (dog) =>
-                            Array.isArray(dog.temperament) &&
-                            dog.temperament.includes(temperament)
+                            Array.isArray(dog?.temperament) &&
+                            dog?.temperament.includes(temperament)
                         );
-                return { ...state, dogs: filteredDog };
+                return { 
+                  ...state, 
+                  dogs: filteredDog 
+                };
 
         case CREATE_DOGS:
-                return { ...state, dogsCopy: [action.payload] };
+                return { 
+                  ...state, 
+                  dogsCopy: [
+                    action.payload
+                  ] 
+                };
         
         case FILTER_BY_SITE:
                   const fromDB = action.payload;
-                  const dogFilter = state.dogsCopy.filter((dog) => dog.created === fromDB);
-                  return { ...state, dogs: dogFilter };
+                  const dogFilter = state.dogsCopy.filter((dog) => dog?.created === fromDB);
+                  return { 
+                    ...state, 
+                    dogs: dogFilter 
+                  };
 
 
         case SORT_BY_NAME:
@@ -80,11 +101,14 @@ import {
                   if (order === "desc") {
                     sortedDogs.reverse();
                   }
-                  return { ...state, dogs: sortedDogs };
+                  return { 
+                    ...state, 
+                    dogs: sortedDogs 
+                  };
 
 
           case SORT_BY_WEIGHT:
-                  const alldogs = state.dogsName;
+                  const alldogs = state.dogsCopy;
                   const orderW =
                     action.payload === "default"
                       ? alldogs
@@ -109,7 +133,10 @@ import {
                           }
                           return weightMinA - weightMinB;
                         });
-                  return { ...state, dogs: orderW };              
+                  return { 
+                    ...state, 
+                    dogs: orderW 
+                  };              
 
 
 

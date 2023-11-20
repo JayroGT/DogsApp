@@ -1,8 +1,7 @@
 import React , {useState} from 'react'
 import { useDispatch } from "react-redux"
 import { filterName } from '../../redux/actions'
-import './SearchBar.css'
-
+import style from './SearchBar.module.css'
 
 export const SearchBar = () => {
 
@@ -35,11 +34,11 @@ const HandleSubmit = (e) => {
                 onChange={HandleChange}
                 id="search" 
                 placeholder="Search for a dog" 
-                className="SearchBar"
+                className={style.SearchBar}
                 />
 
-        <div className='contButon'>
-        <button type="submit">
+        <div className={style.contButon}>
+        <button type="submit" className={style.btnsrch}>
             Buscar
         </button>
         </div>

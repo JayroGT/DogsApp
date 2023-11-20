@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import './Pag.css';
+import style from './Pag.module.css';
 
 export const Pag = ({dogs, dogsxPage, pages, prevHandler, nextHandler} ) => {
     const numPage = [];
@@ -26,27 +26,25 @@ export const Pag = ({dogs, dogsxPage, pages, prevHandler, nextHandler} ) => {
         }
       }
 
-  return (
-    <div className='pagCont'>
-        <div className='contS'>
-        <button onClick={handlePrevClick} className='buttPag'>
-        {"🡰"}
-
-        </button>
-      <div className='pag' >
-        {numPage &&
-          numPage.map((number) => (
-            <div
-              key={number}
-              onClick={() => handleClick(number)}
-            >
-              {number}
+  return (    
+    <div className={style.pagCont}>
+        <div className={style.contS}>
+            <button onClick={handlePrevClick} className={style.buttPag}>
+            {"🡰"}
+            </button>
+            <div className={style.pag} >
+              {numPage &&
+                numPage.map((number) => (
+                  <div
+                    key={number}
+                    onClick={() => handleClick(number)}>
+                    {number}
+                  </div>
+                ))}
             </div>
-          ))}
-        </div>
-        <button onClick={handleNextClick} className='buttPag'>
-        {"🡲"}
-        </button>
+            <button onClick={handleNextClick} className={style.buttPag}>
+            {"🡲"}
+            </button>
         </div>
     </div>
   )

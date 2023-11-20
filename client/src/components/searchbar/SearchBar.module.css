@@ -1,0 +1,49 @@
+.SearchBar {
+    display: flex;
+    font-weight: 500;
+    font-size: 14px;
+    height: 2rem;
+    border-radius: 10px;
+    padding-left: 10px;
+    border: none;
+    border-bottom: 1px solid var(--color5);
+    outline: none;
+    margin-right: 10px;
+    width : 19rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .contButon {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 1rem;
+    
+  }
+
+    .btnsrch {
+      width: fit-content;
+      min-width: 80px;
+      height: 30px;
+      padding: 8px;
+      color: var(--color4);
+      border-radius: 5px;
+      border: 2.5px solid #E0E1E4;
+      box-shadow: 0px 0px 20px -20px;
+      cursor: pointer;
+      background-color: white;
+      transition: all 0.2s ease-in-out 0ms;
+      user-select: none;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .btnsrch:hover {
+      background-color: #F2F2F2;
+      box-shadow: 0px 0px 20px -18px;
+    }
+    
+    .btnsrch:active {
+      transform: scale(0.95);
+    }
+  

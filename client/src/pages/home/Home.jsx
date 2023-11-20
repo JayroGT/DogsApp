@@ -1,30 +1,36 @@
 import React from "react";
 import { SearchBar } from "../../components/searchbar/SearchBar";
 import Cards from "../../components/cards/Cards";
-import './Home.css'
+import style from './Home.module.css';
 import { FilterTemp } from "../../components/filtertemp/FilterTemp";
 import {FilterBySite} from "../../components/FilterBySite/FilterBySite";
 import {SortByName} from "../../components/SortByName/SortByName";
 import {SortByWeight} from "../../components/SortByWeight/SortByWeight";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import amongdogImage from "../../assets/amongdog.png";
+
+
 
 export default function Home (){
     
-    
         
     return <>
-        <div id="home-component">
-
-            <div className="buttCreate">
+        <div >
+            <div className={style.headerhome}>
+                <div className={style.imagencontent}>
+                    <img src={amongdogImage}  alt="Imagen principal" className={style.imagen}/>
+                </div>
+                <div className={style.buttCreate}>
                 <Link to="/create">
-                <button > Crear perro </button>
+                    <button className={style.botoncrear}> Crear perro </button>
                 </Link>
+                </div>
             </div>
-        <div className = "contentSearch">
+        <div className = {style.contentSearch}>
             <SearchBar />
         </div>
-        <div className="contfilter">
-        <div className= "filter">
+        <div className={style.contfilter}>
+        <div className= {style.filter}>
             <SortByName />
             <SortByWeight />
             <FilterBySite />
@@ -34,8 +40,8 @@ export default function Home (){
             <FilterTemp />
         </div>
             <section>
-                <div className="card-container">
-                        <Cards className="card"/>
+                <div className={style.cardcontainer}>
+                        <Cards className={style.card}/>
                 </div>
             </section>
         </div>

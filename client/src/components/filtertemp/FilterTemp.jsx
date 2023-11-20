@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useSelector, useDispatch} from 'react-redux';
 import { filterDogsByTemperament } from '../../redux/actions';
-import './FilterTemp.css';
+import style from './FilterTemp.module.css';
 
 export const FilterTemp = () => {
 
@@ -18,7 +18,7 @@ export const FilterTemp = () => {
   }
 
   return (
-    <div className='cont'>
+    <div className={style.cont}>
       <div >
           <select onChange={handleFilterChange} >
             <option value="default">Select Temperament</option>

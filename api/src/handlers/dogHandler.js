@@ -38,9 +38,29 @@ const {
     }
 
     const createDogHandler = async (req, res)=>{
-            const {name, image, heightMin, heightMax, weightMin, weightMax, yearsOfLife, temperament} = req.body 
+            const {
+                name, 
+                image, 
+                heightMin, 
+                heightMax, 
+                weightMin, 
+                weightMax, 
+                yearsOfLife, 
+                temperament
+                } = req.body 
+
             try {
-                const newDog = await Dog.create({name, image, heightMin, heightMax, weightMin, weightMax, yearsOfLife, temperament,created: true})
+                const newDog = await Dog.create({
+                    name, 
+                    image, 
+                    heightMin, 
+                    heightMax, 
+                    weightMin, 
+                    weightMax, 
+                    yearsOfLife, 
+                    temperament,
+                    created: true
+                })
                 if (temperament && temperament.length) {
                     for (const temperamentName of temperament) {
                     const temp = await Temperaments.findOrCreate({

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "../card/Card";
 import { useSelector } from "react-redux";
-import "./Cards.css";
+import style from "./Cards.module.css";
 import { Pag } from "../paginado/Pag";
 
 
@@ -51,20 +51,20 @@ const nextHandler = () => {
             refreshPage={refreshPage}
             />
         </div>
-        <div className="content">
+        <div className={style.content}>
             {
                 currentDog.map((dog)=>{
                     return <Card 
-                    id={dog.id} 
-                    weightMin={dog.weightMin} 
-                    weightMax={dog.weightMax} 
-                    heightMin={dog.heightMin}  
-                    heightMax={dog.heightMax}
-                    image = {dog.image} 
-                    temperament = {Array.isArray(dog.temperament) ? dog.temperament.join(", ") : ''}
-                    key={dog.id} 
+                    id={dog?.id} 
+                    weightMin={dog?.weightMin} 
+                    weightMax={dog?.weightMax} 
+                    heightMin={dog?.heightMin}  
+                    heightMax={dog?.heightMax}
+                    image = {dog?.image} 
+                    temperament = {Array.isArray(dog?.temperament) ? dog?.temperament.join(", ") : ''}
+                    key={dog?.id} 
                     dogs={dog} 
-                    name={dog.name} 
+                    name={dog?.name} 
                     />
                 })
             }
