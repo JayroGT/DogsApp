@@ -7,7 +7,7 @@ const {
 } = process.env;
 
 
-const password = "D;/p~Yx#Z6<wD^gn";
+const password = p a s s w o r d
 const encodedPassword = encodeURIComponent(password);
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${encodedPassword}@${DB_HOST}/dogs`, {
